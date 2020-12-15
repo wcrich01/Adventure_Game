@@ -9,7 +9,7 @@ L -> Left
 B -> Back
 
 Correct path to the treasure room: 
-F, F, F, R, F, L, F, R, F, F, L, F(Boss Fight) -> Treasure room
+F, F, F, R, F, L, F, F, R, F, F, L, F(Boss Fight) -> Treasure room
 
 
 There are 3 trap rooms that will kill player if they fail roll to 
