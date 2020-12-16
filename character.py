@@ -6,12 +6,11 @@ import random
 
 
 class Character:
-    def __init__(self, name, stats):
+    def __init__(self, name, stats, damage):
         self.name = name
         self.stats = stats
-        self.damage = 2 * random.randrange(1, 7)
-        self.ability_check = random.randrange(1, 20)
-        self.initiative = random.randrange(1,20)
+        self.damage = 2 
+        
 
     name = {
         "Name": ""
@@ -24,18 +23,19 @@ class Character:
         "Weapon": "",
     }
 
-    def player_attack(self, target):
-        print(f'You attacked the creature with your {Character.stats["Weapon"]}')
-        target.health -= self.damage
-        print(f'{target.name} has {target.health} health remaining.')
+    @property
+    def player_damage(self):
+        return self.damage * random.randrange(1, 7)
+
+    
+    initiative = random.randrange(1, 21)
 
 
 class Boss:
-    def __init__(self, name, stats, damage, initiative):
+    def __init__(self, name, stats, damage):
         self.name = name
         self.stats = stats
-        self.damage = random.randrange(1, 6)
-        self.initiative = random.randrange(1,20)
+        self.damage = 2
     
     name = {
         "Name": "Gargamel"
@@ -47,5 +47,9 @@ class Boss:
     "Weapon": "Sword"
     }
 
-    damage = random.randrange(1, 6)
-    initiative = random.randrange(1,20)
+    @property
+    def boss_damage(self):
+        return self.damage * random.randrange(1, 7)
+
+    
+    initiative = random.randrange(1, 21)

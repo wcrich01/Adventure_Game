@@ -34,7 +34,7 @@ def game():
                 print("You leave the ruins. That was enough adventuring for you.\n")
                 break
             
-            #main_door()
+            main_door()
             boss_room()
             
             
@@ -43,7 +43,7 @@ def game():
         if (input == 'Q' or input == 'q'):
             break
         else:
-            print("Return when you are ready for an adventure.")
+            print("Return when you are ready for an adventure.\n\n")
             break
 
 game()
