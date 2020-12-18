@@ -4,10 +4,9 @@
 import random
 import math
 
-from character import Character
-from character import Boss
-from functions import *
-from dungeon import *
+from character import Character, Boss
+from dungeon import main_door, intersection, boss_room
+from functions import roll_dice_dropping_lowest
 
 def game():
     while True:
@@ -23,7 +22,7 @@ def game():
 
             print(f'\nGreetings {Character.name["Name"]}! Now let us determine your attributes that will help you on your journey.') 
             print(f'You rolled {Character.stats["Dexterity"]} for your Dexterity. You rolled {Character.stats["Strength"]} for you Strength.')
-            print("You only have 20 Hit Points so be careful!")
+            print(f"You only have {Character.stats['Health']} Hit Points so be careful!")
             Character.stats.update({"Weapon": input("What kind of weapon would you like to have? ")})
 
             print("\n\nTime to start your journey!\n\nYou arrive at an the ancient ruins of a temple standing alone amongst a field of grass.\n") 
@@ -35,16 +34,16 @@ def game():
                 break
             
             main_door()
-            boss_room()
-            
-            
-              
-
+            print("\nYou see a long corridor stretching out before you. You make your way down the dark corridor.")
+            intersection()  
+            boss_room()          
         if (input == 'Q' or input == 'q'):
+            print("Thank you for playing.")
             break
         else:
             print("Return when you are ready for an adventure.\n\n")
             break
 
-game()
 
+if __name__ == "__main__":
+    game()
