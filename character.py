@@ -17,8 +17,6 @@ class Character:
         "Name": ""
     }
     stats = {
-        "Dexterity": "",
-        "Strength": "",
         "Health": 20,
         "AC": 16,
         "Weapon": "",

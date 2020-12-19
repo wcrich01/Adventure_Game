@@ -40,7 +40,11 @@ def path():
         elif (intersection.lower() == 'left' or intersection.lower() == 'l'):  # Left turn path
             print("You turn left and head down the left corridor. You hear a click as you are walking... \n")
             trap()
-            print("You turn and head back the way you came.")
+            if (Character.stats["Health"] <= 0):
+                print("You died!\n")
+                break
+            else:
+                print("You turn and head back the way you came.")
             path()
         elif (intersection.lower() == 'right' or intersection.lower() == 'r'): # Right turn path
             print("You turn right and head down the right corridor. You notice crypts built into the walls of the passage.")
@@ -74,9 +78,9 @@ def trap():
         health = Character.stats["Health"] - damage
         Character.stats.update({"Health": health})
         print(f"You failed to escape the trap. You take {damage} amount of damage. Be careful you only have {health} hitpoints left!")
-        path()
 
 
+# Function calls for the two rooms
 def room_1():
     print("You enter a room with a stone table with embalming tools and other instruments for the preparation of bodies laying on the table.")
     room_1 = input("Would you like to explore the room or leave? Explore or Leave ")
@@ -106,8 +110,9 @@ def boss_room():
 with the effegy of a king on the lid. As you enter the room a voice calls out. 'Who dares enters my chamber?' do you answer or run?  """)
     if(boss_room_entrence.lower() == 'answer' or boss_room_entrence.lower() == 'a'):
         print(f"\nYou respond to the voice. My name is {Character.name['Name']}, and I come seeking the treasure of this forgotten temple. Will you let me have it or must we fight?\n")
-        print(f"'I cannot let you have my treasure {Character.name['Name']}.' says the voice as the lid slides open. A skeletal figure rises out of the tomb. and starts making for you. ")
-        print("The skeletal creature grabs a sword from the wall and takes a swing at you...\n")
+        print(f"'I am {Boss.name['Name']}, I cannot let you have my treasure {Character.name['Name']}.' says the voice as the lid slides open. A skeletal figure rises out of the tomb. and starts making for you. ")
+        print("The skeletal creature grabs a sword from the wall and takes a swing at you...")
+        print('Time to roll initiative!\n')
         boss_battle()
     elif (boss_room_entrence.lower() == 'run' or boss_room_entrence.lower() == 'r'):
         print(f"\n{Character.name['Name']} flees the room, sprinting back the way you came and out of the temple.")
