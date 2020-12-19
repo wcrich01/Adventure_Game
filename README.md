@@ -17,4 +17,6 @@ Python version -- 3.9.0 -- [Python Downloads](https://www.python.org/downloads/)
 
 ---
 This project was written and tested in Visual Studio Code.
-The project is run in the terminal. Project started with command: python game.py
+The project is run in the terminal. 
+
+Project started with command: *python game.py*
