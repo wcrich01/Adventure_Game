@@ -8,6 +8,7 @@ import random
 class Character:
     def __init__(self, name, stats, damage):
         self.name = name
+        self.health = 20
         self.stats = stats
         self.damage = 2 
         
@@ -34,6 +35,7 @@ class Character:
 class Boss:
     def __init__(self, name, stats, damage):
         self.name = name
+        self.health = 15
         self.stats = stats
         self.damage = 2
     
