@@ -6,7 +6,7 @@ import math
 
 from character import Character, Boss
 from dungeon import main_door, path, boss_room
-from functions import roll_dice_dropping_lowest, stat_block_dex, stat_block_str
+from functions import roll_dice_dropping_lowest, stat_block_dex, stat_block_str, stat_block_con
 
 def game():
     while True:
@@ -17,15 +17,18 @@ def game():
             #Roll stats for your character
             Character.stats.update({"Dexterity": roll_dice_dropping_lowest(4, 6)})
             Character.stats.update({"Strength": roll_dice_dropping_lowest(4, 6)})
+            Character.stats.update({"Constitution": roll_dice_dropping_lowest(4, 6)})
+            Health = Character.stats['Health'] + stat_block_con(int)
+            Character.stats.update({"Health": Health})
 
             print(f'\nGreetings {Character.name["Name"]}! Now let us determine your attributes that will help you on your journey.') 
-            print(f'You rolled {Character.stats["Dexterity"]} for your Dexterity. You rolled {Character.stats["Strength"]} for you Strength.')
-            print(f'From your attribute scores you will be getting a bonus {stat_block_dex(int)} to your Dexterity checks.')  
-            print(f'From your attribute scores you will be getting a bonus {stat_block_str(int)} to your strength checks.')
+            print(f'You rolled {Character.stats["Dexterity"]} for your Dexterity, which gave you a bonus {stat_block_dex(int)} to your Dexterity checks.')
+            print(f'You rolled {Character.stats["Strength"]} for you Strength, which gave you a bonus {stat_block_str(int)} to your Strength checks.')
+            print(f'You rolled {Character.stats["Constitution"]} for your Constitution, which gave you a bonus {stat_block_con(int)} to your health')
             print(f"You only have {Character.stats['Health']} Hit Points so be careful!")
             Character.stats.update({"Weapon": input("What kind of weapon would you like to have? ")})
 
-            print("\n\nTime to start your journey!\n\nYou arrive at an the ancient ruins of a temple standing alone amongst a field of grass.\n") 
+            print("\n\nTime to start your journey!\nYou arrive at an the ancient ruins of a temple standing alone amongst a field of grass.\n") 
             explore_ruin = input("Would you like to explore the ruins? Y/N  ")
             if (explore_ruin.lower() == 'y' or explore_ruin.lower() == "yes"):
                 print("You enter the ruins and find at the bottom of a set of stairs an entrance way with two closed doors.\n")

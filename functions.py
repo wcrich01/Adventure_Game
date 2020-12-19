@@ -45,6 +45,22 @@ def stat_block_str(int):
     if 12 > char_stat_roll:
         return 0
 
+
+# Function for adding to health
+def stat_block_con(int):
+    char_stat_roll = int(Character.stats["Constitution"])
+    #print(char_stat_roll)
+    if char_stat_roll >= 18:
+        return 4
+    if 18 > char_stat_roll >= 16:
+        return 3
+    if 16 > char_stat_roll >= 14:
+        return 2
+    if 14 > char_stat_roll >= 12:
+        return 1
+    if 12 > char_stat_roll:
+        return 0
+
 # functions to determine the reflex and strength checks
 d20_roll = random.randrange(1, 21) # Rolls a d20 
 
