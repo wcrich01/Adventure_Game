@@ -3,17 +3,14 @@
 
 '''
 
-F -> Forward
-R -> Right
-L -> Left
-B -> Back
-
 Correct path to the treasure room: 
-F, F, R, trap, F, L, F, F, R, F, F, L, F -> (Boss Fight) Treasure room
+main door -> right at intersection -> left at t-intersection(other two options will also lead to boss after added steps) -> (Boss Fight) Treasure room
 
 
-There are 3 traps that will kill player if they fail roll to 
+There are 3 traps that will harm player if they fail roll to 
 escape. 
+
+player can potentially get stuck in path loop if never choosing right path.
 
 '''
 

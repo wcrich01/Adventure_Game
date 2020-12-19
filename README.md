@@ -1,5 +1,15 @@
-This is a short interactive text based adventure game. You will get to create a character, which has stats and explore an ancient tomb in search of treasure. The object is to survive the map and reach the treasure. 
+## Project Details:
+This is a short interactive text based adventure game. You will get to create a character, which has stats and explore an ancient tomb in search of treasure. The object is to survive the map and reach the treasure. There will be traps and a boss fight. The player will be prompted with choices available. The player can type out the word or just use the first letter. 
 
-You will will be able pick a direction to travel from available options. If you choice an invalid option an error message will appear. 
+---
+## The project implemented these criteria:
 
-Python version -- 3.9.0
+    1. Implement a “master loop” console application where the user can repeatedly enter commands/perform actions, including choosing to exit the program
+    2. Create a class, then create at least one object of that class and populate it with data
+    3. Create a dictionary or list, populate it with several values, retrieve at least one value, and use it in your program
+    4. Create and call at least 3 functions, at least one of which must return a value that is used
+
+---
+## Version of Python used:
+Python version -- 3.9.0 -- https://www.python.org/downloads/
+* f-string method used in project introduced in Python v3.6
