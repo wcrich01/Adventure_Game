@@ -117,6 +117,7 @@ with the effegy of a king on the lid. As you enter the room a voice calls out. '
 
 # Function for the boss battle
 def boss_battle():
+    # Created instances for both classes 
     character = Character('name', 'stats', 'damage')
     boss = Boss('name', 'stats', 'damage')
     # So player can see the initiatives
