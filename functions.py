@@ -46,7 +46,7 @@ def stat_block_str(int):
         return 0
 
 # functions to determine the reflex and strength checks
-d20_roll = random.randrange(1, 20)
+d20_roll = random.randrange(1, 21) # Rolls a d20 
 
 def reflex_check():
     dex_save = d20_roll + stat_block_dex(int)
