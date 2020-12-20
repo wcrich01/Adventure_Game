@@ -2,6 +2,7 @@
 
 import math
 import random
+import sys
 
 
 from character import Character, Boss
@@ -25,6 +26,10 @@ def main_door():
     if (door.lower() == 'trap' or door.lower() == 't'):
         print(f"You check the door for any traps. You got a {reflex_check} on your reflex check. The door is not trapped\n")
         main_door()
+    if (door.lower() == 'q' or door.lower() == 'quit'):
+        print("You abandon your attempts to open the door and leave the ruins.")
+        sys.exit()
+
 
 # This is used for the main movement in the dungeon
 # While loop added because player could die on paths. Need to account for that
@@ -62,6 +67,9 @@ def path():
             elif(t_intersection.lower() == 'door' or t_intersection.lower() == 'd'):
                 room_2()
                 break
+            elif(t_intersection.lower() != 'q'):
+                print("That is an invalid response. Please select Right, Left, or Door")
+                t_intersection = input("Which way would you like to go? Right, Left, or door? ")
         elif(intersection.lower() == 'quit' or intersection.lower() == 'q'):
             break
 
@@ -150,7 +158,7 @@ def boss_battle():
             player_damage = character.player_damage
             current_boss_health = Boss.stats["Health"] - player_damage
             Boss.stats.update({"Health": current_boss_health})
-            print(f"You attacked the creature with your {Character.stats['Weapon']} and dealt {player_damage} damage.")
+            print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.")
             if (Boss.stats["Health"] <= 0):
                 print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
                 break

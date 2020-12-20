@@ -3,6 +3,8 @@
 
 import random
 import math
+import sys
+
 
 from character import Character, Boss
 from dungeon import main_door, path, boss_room
@@ -13,7 +15,7 @@ def game():
         start_game = input("""Welcome traveler. Do you seek adventure and the treasure that lies
         at the end? Yes or No (If you wish to quit at anytime type 'Q'.)\n""")
         if (start_game.lower() == "y" or start_game.lower() == "yes"):
-            Character.name.update({"Name": input('What is your name traveler? ')})
+            Character.name.update({"Name": input('What is your name traveler? ').capitalize()})
             #Roll stats for your character
             Character.stats.update({"Dexterity": roll_dice_dropping_lowest(4, 6)})
             Character.stats.update({"Strength": roll_dice_dropping_lowest(4, 6)})
@@ -29,17 +31,24 @@ def game():
             Character.stats.update({"Weapon": input("What kind of weapon would you like to have? ")})
 
             print("\n\nTime to start your journey!\nYou arrive at an the ancient ruins of a temple standing alone amongst a field of grass.\n") 
-            explore_ruin = input("Would you like to explore the ruins? Y/N  ")
-            if (explore_ruin.lower() == 'y' or explore_ruin.lower() == "yes"):
-                print("You enter the ruins and find at the bottom of a set of stairs an entrance way with two closed doors.\n")
-            else:
-                print("You leave the ruins. That was enough adventuring for you.\n")
-                break
-            
-            main_door()
+            def ruins():
+                explore_ruin = input("Would you like to explore the ruins? Y/N  ")
+                if (explore_ruin.lower() == 'y' or explore_ruin.lower() == "yes"):
+                    print("You enter the ruins and find at the bottom of a set of stairs an entrance way with two closed doors.\n")
+                    main_door()
+                elif (explore_ruin.lower() == 'n' or explore_ruin.lower() == "n" or explore_ruin.lower() == 'q'):
+                    print("You leave the ruins. That was enough adventuring for you.\n")
+                    sys.exit()
+                
+                else:
+                    print("The wheel of time turns as you decide what to do...")
+                    ruins()
+            ruins()
             print("\nYou see a long corridor stretching out before you. You make your way down the dark corridor.")
             path()  
-            break          
+            break
+        if (input == 'Q' or input == 'q'):
+            sys.exit()
         else:
             print("Return when you are ready for an adventure.\n\n")
             break
