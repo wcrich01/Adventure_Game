@@ -47,7 +47,7 @@ def path():
             trap()
             if (Character.stats["Health"] <= 0):
                 print("You died!\n")
-                break
+                sys.exit()
             else:
                 print("You turn and head back the way you came.")
             path()
@@ -71,7 +71,7 @@ def path():
                 print("That is an invalid response. Please select Right, Left, or Door")
                 t_intersection = input("Which way would you like to go? Right, Left, or door? ")
         elif(intersection.lower() == 'quit' or intersection.lower() == 'q'):
-            break
+            sys.exit()
 
 # There are several traps in the temple. This function is used when the player stumbles into one of them.
 def trap():
