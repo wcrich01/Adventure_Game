@@ -24,7 +24,7 @@ def main_door():
             print("The door didn't open. You try again.")
             main_door()
     if (door.lower() == 'trap' or door.lower() == 't'):
-        print(f"You check the door for any traps. You got a {reflex_check} on your reflex check. The door is not trapped\n")
+        print(f"You check the door for any traps. You got a {reflex_check} on your reflex check. The door is not trapped.\n")
         main_door()
     if (door.lower() == 'q' or door.lower() == 'quit'):
         print("You abandon your attempts to open the door and leave the ruins.")
@@ -103,7 +103,7 @@ def room_2():
     print("You enter a room with walls covered in scroll shelves. There is a lone desk sitting in the middle of the room.")
     room_1 = input("Would you like to explore the room or leave? Explore or Leave ")
     if (room_1.lower() == 'explore' or room_1.lower() == 'e'):
-        print("\nThere are plenty off ancient scrolls stacked on the shelves. You pull several out to look at but they are in a language you don't speak.")
+        print("\nYou notice there are plenty of ancient scrolls stacked on the shelves. You pull several out to look at but they are in a language you don't understand.")
         print("On the desk you find quills and dried inkwells. You guess this room is a records room for the temple.")
         print("You decide to leave the room and exit to right. You approach a closed door. You open the door and step in.\n")
         boss_room()
@@ -114,7 +114,7 @@ def room_2():
 
 # Final room of the temple where a boss encounter and treasure reside.
 def boss_room():
-    boss_room_entrence = input("""You notice as you enter the room a the walls glimmer with light reflecting off gold and silver. In the center of the room sits a tomb 
+    boss_room_entrence = input("""You notice as you enter the room that the walls glimmer with light reflecting off gold and silver. In the center of the room sits a tomb 
 with the effegy of a king on the lid. As you enter the room a voice calls out. 'Who dares enters my chamber?' do you answer or run?  """)
     if(boss_room_entrence.lower() == 'answer' or boss_room_entrence.lower() == 'a'):
         print(f"\nYou respond to the voice. My name is {Character.name['Name']}, and I come seeking the treasure of this forgotten temple. Will you let me have it or must we fight?\n")
