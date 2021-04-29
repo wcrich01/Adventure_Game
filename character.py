@@ -6,11 +6,12 @@ import random
 
 
 class Character:
-    def __init__(self, name, stats, damage):
+    def __init__(self, name, stats, damage, attack):
         self.name = name
         self.health = 20
         self.stats = stats
         self.damage = 2 
+        self.attack = 1
         
 
     name = {
@@ -29,13 +30,18 @@ class Character:
     
     initiative = random.randrange(1, 21)
 
+    @property
+    def player_attack(self):
+        return self.attack * random.randrange(1, 21)
+
 
 class Boss:
-    def __init__(self, name, stats, damage):
+    def __init__(self, name, stats, damage, attack):
         self.name = name
         self.health = 15
         self.stats = stats
         self.damage = 2
+        self.attack = 1
     
     name = {
         "Name": "Gargamel"
@@ -53,3 +59,7 @@ class Boss:
 
     
     initiative = random.randrange(1, 21)
+
+    @property
+    def boss_attack(self):
+        return self.attack * random.randrange(1, 21)
