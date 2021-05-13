@@ -159,10 +159,10 @@ def boss_battle():
                 if (Boss.stats["Health"] <= 0):
                     if (Boss.name["Name"] == "Grendel"):
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off, and claimed the treasure!\n')
-                        break
+                        sys.exit()
                     else:
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
-                        break
+                        sys.exit()
             else:
                 print(f"You rolled a {player_attack} on your attack and missed.")
           
@@ -176,10 +176,10 @@ def boss_battle():
                 if (Boss.stats["Health"] <= 0):
                     if (Boss.name["Name"] == "Grendel"):
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off and claimed the treasure!\n')
-                        break
+                        sys.exit()
                     else:
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
-                        break
+                        sys.exit()
             else:
                 print(f"You rolled a {player_attack} on your attack and missed.")
             boss_damage = boss.boss_damage
