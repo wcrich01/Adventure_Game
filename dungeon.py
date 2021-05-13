@@ -158,7 +158,7 @@ def boss_battle():
                 print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.")
                 if (Boss.stats["Health"] <= 0):
                     if (Boss.name["Name"] == "Grendel"):
-                        print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off and claimed the treasure!\n')
+                        print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off, and claimed the treasure!\n')
                         break
                     else:
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
