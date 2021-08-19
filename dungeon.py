@@ -3,6 +3,7 @@
 import math
 import random
 import sys
+import time
 
 
 from character import Character, Boss
@@ -120,6 +121,7 @@ with the effegy of a king on the lid. As you enter the room a voice calls out. '
         print(f"\nYou respond to the voice. My name is {Character.name['Name']}, and I come seeking the treasure of this forgotten temple. Will you let me have it or must we fight?\n")
         print(f"'I am {Boss.name['Name']}, I cannot let you have my treasure {Character.name['Name']}.' says the voice as the lid slides open. A skeletal figure rises out of the tomb. and starts making for you. ")
         print("The skeletal creature grabs a sword from the wall and takes a swing at you...")
+        time.sleep(3)
         print('Time to roll initiative!\n')
         boss_battle()
     elif (boss_room_entrence.lower() == 'run' or boss_room_entrence.lower() == 'r'):
@@ -135,6 +137,7 @@ def boss_battle():
     boss = Boss('name', 'stats', 'damage', 'attack')
     # So player can see the initiatives
     print(f"Boss initiative: {Boss.initiative}, Character initiative: {Character.initiative}")
+    time.sleep(2)
     # Loop for the boss encouter. Will continue till either boss or player is dead. 
     while Boss.stats["Health"] > 0 or Character.stats["Health"] > 0:
         if (Boss.initiative > Character.initiative):
@@ -144,18 +147,21 @@ def boss_battle():
             if(boss_attack >= Character.stats["AC"]):
                 current_player_health = current_player_health - boss_damage # The players current health after damage. 
                 Character.stats.update({"Health": current_player_health})
-                print(f"The boss did {boss_damage} damage. You now have {current_player_health} hitpoints left.")
+                print(f"The boss did {boss_damage} damage. You now have {current_player_health} hitpoints left.\n")
+                time.sleep(2)
                 if (Character.stats["Health"] <= 0):
                     print('\nYou died!\n')
                     break
             else:
-                print("The boss missed its attack.")
+                print("The boss missed its attack.\n")
+                time.sleep(2)
             player_damage = character.player_damage
             player_attack = character.player_attack
             if (player_attack >= Boss.stats["AC"]):
                 current_boss_health = Boss.stats["Health"] - player_damage
                 Boss.stats.update({"Health": current_boss_health}) # The Boss's current health after damage
-                print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.")
+                print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.\n")
+                time.sleep(2)
                 if (Boss.stats["Health"] <= 0):
                     if (Boss.name["Name"] == "Grendel"):
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off, and claimed the treasure!\n')
@@ -164,7 +170,8 @@ def boss_battle():
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
                         sys.exit()
             else:
-                print(f"You rolled a {player_attack} on your attack and missed.")
+                print(f"You rolled a {player_attack} on your attack and missed.\n")
+                time.sleep(2)
           
         elif (Character.initiative > Boss.initiative):
             player_damage = character.player_damage
@@ -172,7 +179,7 @@ def boss_battle():
             if (player_attack >= Boss.stats["AC"]):
                 current_boss_health = Boss.stats["Health"] - player_damage
                 Boss.stats.update({"Health": current_boss_health})
-                print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.")
+                print(f"You attacked the creature with your {Character.stats['Weapon'].lower()} and dealt {player_damage} damage.\n")
                 if (Boss.stats["Health"] <= 0):
                     if (Boss.name["Name"] == "Grendel"):
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten {Boss.name["Name"]} by ripping his arm off and claimed the treasure!\n')
@@ -181,13 +188,15 @@ def boss_battle():
                         print(f'\nCongratulations {Character.name["Name"]}! You have beaten the boss and claimed the treasure!\n')
                         sys.exit()
             else:
-                print(f"You rolled a {player_attack} on your attack and missed.")
+                print(f"You rolled a {player_attack} on your attack and missed.\n")
+                time.sleep(2)
             boss_damage = boss.boss_damage
             boss_attack = boss.boss_attack
             if(boss_attack >= Character.stats["AC"]):
                 current_player_health = Character.stats["Health"] - boss_damage
                 Character.stats.update({"Health": current_player_health})
                 print(f"The boss did {boss_damage} damage. You now have {Character.stats['Health']} hitpoints left.")
+                time.sleep(2)
                 if (Character.stats["Health"] <= 0):
                     print('\nYou died!\n')
                     break

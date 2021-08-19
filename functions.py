@@ -75,6 +75,13 @@ def strength_check():
     
 
 
+# function for possible random encounter
 
-
-
+def random_encounter():
+    d100_roll = random.randrange(1, 101) # Rolls a d100
+    if d100_roll  <= 50:
+        return 
+    if 51 > d100_roll <= 99:
+        return 
+    if d100_roll >= 100:
+        return 

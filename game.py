@@ -4,10 +4,11 @@
 import random
 import math
 import sys
+import time
 
 
 from character import Character, Boss
-from locations import ruins
+from locations import ruins, town
 from dungeon import main_door, path, boss_room
 from functions import roll_dice_dropping_lowest, stat_block_dex, stat_block_str, stat_block_con
 
@@ -36,7 +37,7 @@ def game():
 
              
             print("\nTime to start your journey!")
-            # town()
+            town()
             ruins()
             print("\nYou see a long corridor stretching out before you. You make your way down the dark corridor.")
             path()  

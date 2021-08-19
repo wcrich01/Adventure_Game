@@ -20,3 +20,11 @@ This project was written and tested in Visual Studio Code.
 The project is run in the terminal. 
 
 Project started with command: *python game.py*
+
+
+---
+## Expansions to be added in future updates
+    1. Adding a starting town location with several ways to discover main quest of game. (Current task) 
+    2. Expanding main dungeon with added rooms and traps.
+    3. random encounter before arriving at temple ruins
+    4. Adding the ability to rest to recover health while exploring.
