@@ -1,7 +1,9 @@
 import random
 import math
+import sys
 
-from character import Character
+
+from character import Character, Dragon, Goblin
 
 
 
@@ -80,8 +82,8 @@ def strength_check():
 def random_encounter():
     d100_roll = random.randrange(1, 101) # Rolls a d100
     if d100_roll  <= 50:
-        return 
+        sys.exit() 
     if 51 > d100_roll <= 99:
-        return 
+        return goblin_encounter()
     if d100_roll >= 100:
-        return 
+        return dragon_encounter()

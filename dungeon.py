@@ -21,6 +21,7 @@ def main_door():
         print(f"You attempt to open the door. You got a {strength_check} on your strength check to open the doors.\n")
         if (strength_check >= 10):
             print("You open the doors and enter the temple.")
+            return
         elif (strength_check < 10):
             print("The door didn't open. You try again.")
             main_door()
@@ -30,7 +31,10 @@ def main_door():
     if (door.lower() == 'q' or door.lower() == 'quit'):
         print("You abandon your attempts to open the door and leave the ruins.")
         sys.exit()
-
+    if (door.lower() != 'trap' or door.lower() != 't' or door.lower() != 'door' or door.lower() != 'd'):
+        print("That is not a correct option. Please try again.")
+        return main_door()
+        
 
 # This is used for the main movement in the dungeon
 # While loop added because player could die on paths. Need to account for that
