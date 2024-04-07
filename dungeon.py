@@ -25,15 +25,22 @@ def main_door():
         elif (strength_check < 10):
             print("The door didn't open. You try again.")
             main_door()
-    if (door.lower() == 'trap' or door.lower() == 't'):
+        # elif (door.lower() != 'door' or door.lower() != 'd'):
+        #     print("That is not a correct option. Please try again.")
+        #     main_door()
+    elif (door.lower() == 'trap' or door.lower() == 't'):
         print(f"You check the door for any traps. You got a {reflex_check} on your reflex check. The door is not trapped.\n")
         main_door()
-    if (door.lower() == 'q' or door.lower() == 'quit'):
+        # if (door.lower() != 'trap' or door.lower() != 't'):
+        #     print("That is not a correct option. Please try again.")
+        #     main_door()
+    elif (door.lower() == 'q' or door.lower() == 'quit'):
         print("You abandon your attempts to open the door and leave the ruins.")
         sys.exit()
-    if (door.lower() != 'trap' or door.lower() != 't' or door.lower() != 'door' or door.lower() != 'd'):
+    else:
         print("That is not a correct option. Please try again.")
-        return main_door()
+        main_door()
+    
         
 
 # This is used for the main movement in the dungeon

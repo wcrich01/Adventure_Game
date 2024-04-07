@@ -21,6 +21,8 @@ def game():
             # You need a hero to defeat Grendel
             if (Character.name["Name"] == "Beowulf"):
                 Boss.name.update({"Name": "Grendel"})
+            else:
+                Boss.name.update({"Name": "Hrothgar"})
             #Roll stats for your character
             Character.stats.update({"Dexterity": roll_dice_dropping_lowest(4, 6)})
             Character.stats.update({"Strength": roll_dice_dropping_lowest(4, 6)})
@@ -43,7 +45,7 @@ def game():
             print("\nYou see a long corridor stretching out before you. You make your way down the dark corridor.")
             path()  
             break
-        if (input == 'Q' or input == 'q'):
+        elif (input == 'Q' or input == 'q'):
             sys.exit()
         else:
             print("Return when you are ready for an adventure.\n\n")

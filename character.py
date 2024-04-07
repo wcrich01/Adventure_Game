@@ -44,7 +44,7 @@ class Boss:
         self.attack = 1
     
     name = {
-        "Name": "Gargamel"
+        "Name": ""
     }
 
     stats = {
@@ -58,7 +58,7 @@ class Boss:
         return self.damage * random.randrange(1, 7)
 
     
-    initiative = random.randrange(1, 21)
+    initiative = random.randrange(1, 21) + 1
 
     @property
     def boss_attack(self):
@@ -96,7 +96,7 @@ class Dragon:
     initiative = random.randrange(1, 21)
 
     @property
-    def boss_attack(self):
+    def dragon_attack(self):
         return self.attack * random.randrange(1, 21)
 
 
@@ -119,12 +119,12 @@ class Goblin:
     }
 
     @property
-    def boss_damage(self):
+    def goblin_damage(self):
         return self.damage * random.randrange(1, 7)
 
     
     initiative = random.randrange(1, 21)
 
     @property
-    def boss_attack(self):
+    def goblin_attack(self):
         return self.attack * random.randrange(1, 21)
